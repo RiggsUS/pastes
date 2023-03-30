@@ -93,23 +93,6 @@ substitutions:
   mystepper: my_stepper # Name of the stepper motor (leave as is)
   delaybetweenupdates: 999 ms # milliseconds between pushing updates to home assistant (for the lulz, feel free to set 1000 ms if annoyed =P)
 
-## Webserver 
-web_server:
-  port: 80
-
-light:
-  - platform: fastled_clockless
-    chipset: SK6812
-    pin: 27
-    num_leds: 1
-    rgb_order: GRB
-    id: status_led
-    name: ${friendly_name} Light
-    effects:
-      - random:
-      - flicker:
-      - addressable_rainbow:
-
 ## Buttons
 button:
   # Button to restart the device
@@ -226,31 +209,6 @@ binary_sensor:
               id: current_status
               state: 'Setup activated, click to start'
 
-  #- platform: gpio
-  #  pin:
-  #    number: D6
-  #    mode: INPUT_PULLUP
-  #  name: '$hostname Window'
-  #  filters:
-  #    - delayed_on: 999ms
-  #  device_class: window
-
-## Stepper
-#stepper:
-#  - platform: uln2003
-#    id: my_stepper
-#    pin_a: 33
-#    pin_b: 23
-#    pin_c: 19
-#    pin_d: 22
-#    max_speed: 250 steps/s
-#    sleep_when_done: true
-    #step_mode: WAVE_DRIVE
-
-
-    # Optional:
-#    acceleration: inf
-#    deceleration: inf
 
 stepper:
   - platform: a4988
